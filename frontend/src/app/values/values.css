@@ -1,0 +1,192 @@
+/* === VALUES PREMIUM SECTION === */
+.values-premium {
+	position: relative;
+	padding: clamp(5rem, 10vw, 10rem) 0;
+	background: var(--background);
+	overflow: hidden;
+}
+
+/* === VALUES GRID === */
+.values-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: 2rem;
+	margin-top: 4rem;
+}
+
+/* === VALUE CARD === */
+.value-card {
+	position: relative;
+	background: var(--surface-elevated);
+	border: 1px solid var(--neutral-200);
+	border-radius: var(--radius-2xl);
+	padding: 2.5rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	gap: 1.25rem;
+	box-shadow: var(--shadow-md);
+	transition: all var(--transition-base);
+	overflow: hidden;
+}
+
+.value-card::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 80%;
+	height: 4px;
+	background: var(--primary-gradient);
+	transform: scaleX(0);
+	transform-origin: center;
+	transition: transform var(--transition-base);
+}
+
+.value-card:hover::before {
+	transform: translateX(-50%) scaleX(1);
+}
+
+.value-card:hover {
+	transform: translateY(-8px);
+	box-shadow: var(--shadow-2xl);
+	border-color: rgba(11, 77, 162, 0.2);
+}
+
+/* === VALUE NUMBER === */
+.value-number {
+	position: absolute;
+	top: 1.5rem;
+	right: 1.5rem;
+	font-size: 2.5rem;
+	font-weight: 900;
+	color: rgba(11, 77, 162, 0.06);
+	line-height: 1;
+	pointer-events: none;
+	transition: all var(--transition-base);
+}
+
+.value-card:hover .value-number {
+	color: rgba(11, 77, 162, 0.12);
+	transform: scale(1.2);
+}
+
+/* === VALUE ICON === */
+.value-icon {
+	width: 72px;
+	height: 72px;
+	border-radius: var(--radius-xl);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all var(--transition-bounce);
+	position: relative;
+	z-index: 1;
+}
+
+.value-icon::after {
+	content: '';
+	position: absolute;
+	inset: -10px;
+	border-radius: var(--radius-xl);
+	background: inherit;
+	opacity: 0.2;
+	filter: blur(20px);
+	z-index: -1;
+	transition: all var(--transition-base);
+}
+
+.value-card:hover .value-icon {
+	transform: scale(1.15) rotate(5deg);
+}
+
+.value-card:hover .value-icon::after {
+	opacity: 0.4;
+	filter: blur(28px);
+}
+
+/* Icon Color Variants - Brand Colors Only */
+.value-icon-1 {
+	background: #0B4DA2;
+	color: white;
+}
+
+.value-icon-2 {
+	background: #F2C300;
+	color: #0B4DA2;
+}
+
+.value-icon-3 {
+	background: #1E6FD9;
+	color: white;
+}
+
+.value-icon-4 {
+	background: #0B4DA2;
+	color: white;
+}
+
+.value-icon-5 {
+	background: #F2C300;
+	color: #0B4DA2;
+}
+
+/* === TEXT CONTENT === */
+.value-title {
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: var(--neutral-950);
+	letter-spacing: -0.02em;
+	margin: 0;
+}
+
+.value-description {
+	font-size: 0.9375rem;
+	line-height: 1.7;
+	color: var(--neutral-700);
+	margin: 0;
+}
+
+/* === DECORATIVE PATTERN === */
+.values-pattern {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 400px;
+	background: linear-gradient(to top, rgba(11, 77, 162, 0.02), transparent);
+	pointer-events: none;
+	z-index: 0;
+}
+
+.values-premium > .container-custom {
+	position: relative;
+	z-index: 1;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+	.values-grid {
+		grid-template-columns: 1fr;
+		max-width: 400px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.value-card {
+		padding: 2rem;
+	}
+
+	.value-number {
+		font-size: 2rem;
+		top: 1rem;
+		right: 1rem;
+	}
+
+	.value-icon {
+		width: 64px;
+		height: 64px;
+	}
+}

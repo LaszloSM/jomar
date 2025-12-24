@@ -1,0 +1,195 @@
+/* === COMPLEMENTARY PREMIUM SECTION === */
+.complementary-premium {
+	position: relative;
+	padding: clamp(5rem, 10vw, 10rem) 0;
+	background: var(--background);
+	overflow: hidden;
+}
+
+/* === COMPLEMENTARY GRID === */
+.complementary-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+	gap: 1.5rem;
+	margin-top: 4rem;
+	margin-bottom: 4rem;
+}
+
+/* === COMPLEMENTARY ITEM === */
+.complementary-item {
+	display: flex;
+	align-items: flex-start;
+	gap: 1.5rem;
+	background: var(--surface-elevated);
+	border: 1px solid var(--neutral-200);
+	border-radius: var(--radius-xl);
+	padding: 2rem;
+	transition: all var(--transition-base);
+	cursor: pointer;
+}
+
+.complementary-item::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: 4px;
+	background: var(--primary-gradient);
+	transform: scaleY(0);
+	transform-origin: top;
+	transition: transform var(--transition-base);
+	opacity: 0;
+}
+
+.complementary-item {
+	position: relative;
+}
+
+.complementary-item:hover::before {
+	transform: scaleY(1);
+	opacity: 1;
+}
+
+.complementary-item:hover {
+	transform: translateX(8px);
+	box-shadow: var(--shadow-lg);
+	border-color: rgba(11, 77, 162, 0.2);
+}
+
+/* === COMPLEMENTARY ICON === */
+.complementary-icon {
+	flex-shrink: 0;
+	width: 56px;
+	height: 56px;
+	background: rgba(11, 77, 162, 0.06);
+	border-radius: var(--radius-lg);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--primary-blue);
+	transition: all var(--transition-bounce);
+}
+
+.complementary-item:hover .complementary-icon {
+	background: rgba(11, 77, 162, 0.12);
+	transform: scale(1.1) rotate(5deg);
+}
+
+/* === COMPLEMENTARY CONTENT === */
+.complementary-content {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.complementary-title {
+	font-size: 1.125rem;
+	font-weight: 700;
+	color: var(--neutral-950);
+	letter-spacing: -0.01em;
+	margin: 0;
+	transition: color var(--transition-base);
+}
+
+.complementary-item:hover .complementary-title {
+	color: var(--primary-blue);
+}
+
+.complementary-description {
+	font-size: 0.9375rem;
+	line-height: 1.6;
+	color: var(--neutral-700);
+	margin: 0;
+}
+
+/* === COMPLEMENTARY CTA === */
+.complementary-cta {
+	background: var(--glass-bg);
+	backdrop-filter: blur(20px) saturate(180%);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	border-radius: var(--radius-2xl);
+	padding: clamp(2.5rem, 5vw, 3.5rem);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	gap: 1.5rem;
+	box-shadow: var(--shadow-xl);
+	position: relative;
+	overflow: hidden;
+}
+
+.complementary-cta::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: var(--primary-gradient);
+	opacity: 0.05;
+	z-index: 0;
+}
+
+.complementary-cta h3 {
+	font-size: clamp(1.5rem, 3vw, 2rem);
+	font-weight: 700;
+	color: var(--neutral-950);
+	margin: 0;
+	letter-spacing: -0.02em;
+	position: relative;
+	z-index: 1;
+}
+
+.complementary-cta p {
+	font-size: 1.0625rem;
+	color: var(--neutral-700);
+	margin: 0;
+	max-width: 600px;
+	position: relative;
+	z-index: 1;
+}
+
+.complementary-cta .btn-primary {
+	position: relative;
+	z-index: 1;
+}
+
+/* === BACKGROUND PATTERN === */
+.complementary-bg {
+	position: absolute;
+	top: 20%;
+	right: 0;
+	width: 500px;
+	height: 500px;
+	background: radial-gradient(circle, rgba(0, 102, 204, 0.06) 0%, transparent 70%);
+	pointer-events: none;
+	z-index: 0;
+}
+
+.complementary-premium > .container-custom {
+	position: relative;
+	z-index: 1;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+	.complementary-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.complementary-item {
+		padding: 1.5rem;
+	}
+
+	.complementary-icon {
+		width: 48px;
+		height: 48px;
+	}
+
+	.complementary-cta {
+		padding: 2rem;
+	}
+}

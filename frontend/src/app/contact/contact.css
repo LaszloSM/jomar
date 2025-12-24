@@ -1,0 +1,229 @@
+/* === CONTACT PREMIUM SECTION === */
+.contact-premium {
+	position: relative;
+	padding: clamp(6rem, 12vw, 12rem) 2rem;
+	background: var(--background);
+	overflow: hidden;
+}
+
+/* === LAYOUT === */
+.contact-layout {
+	display: grid;
+	grid-template-columns: 1fr 1.3fr;
+	gap: 5rem;
+	align-items: start;
+	max-width: 1300px;
+	margin: 0 auto;
+}
+
+/* === CONTACT INFO === */
+.contact-info {
+	display: flex;
+	flex-direction: column;
+	gap: 2.5rem;
+	position: sticky;
+	top: 120px;
+}
+
+.contact-subtitle {
+	font-size: 1.125rem;
+	line-height: 1.8;
+	color: var(--neutral-600);
+	margin: 0;
+	font-weight: 300;
+}
+
+/* === CONTACT METHODS === */
+.contact-methods {
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
+	margin-top: 1.5rem;
+}
+
+.contact-method-card {
+	display: flex;
+	align-items: center;
+	gap: 1.25rem;
+	padding: 1.5rem;
+	background: var(--surface-elevated);
+	border: 1px solid var(--neutral-200);
+	border-radius: var(--radius-xl);
+	transition: all var(--transition-base);
+	box-shadow: var(--shadow-sm);
+}
+
+.contact-method-card:hover {
+	transform: translateX(4px);
+	box-shadow: var(--shadow-md);
+	border-color: var(--primary-blue);
+}
+
+.contact-method-icon {
+	width: 48px;
+	height: 48px;
+	min-width: 48px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba(11, 77, 162, 0.06);
+	border-radius: var(--radius-lg);
+	color: var(--primary-blue);
+	transition: all var(--transition-base);
+}
+
+.contact-method-icon-accent {
+	background: rgba(242, 195, 0, 0.08);
+	color: #F2C300;
+}
+
+.contact-method-icon-secondary {
+	background: rgba(30, 111, 217, 0.06);
+	color: #1E6FD9;
+}
+
+.contact-method-card:hover .contact-method-icon {
+	transform: scale(1.1);
+}
+
+.contact-method-content {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+}
+
+.contact-method-label {
+	font-size: 0.875rem;
+	font-weight: 600;
+	color: var(--neutral-500);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+.contact-method-value {
+	font-size: 1.0625rem;
+	font-weight: 600;
+	color: var(--neutral-900);
+	text-decoration: none;
+	transition: color var(--transition-fast);
+}
+
+.contact-method-value:hover {
+	color: var(--primary-blue);
+}
+
+/* === SOCIAL LINKS === */
+.contact-social {
+	display: flex;
+	gap: 1rem;
+	margin-top: 1rem;
+}
+
+.contact-social-link {
+	width: 44px;
+	height: 44px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: var(--surface-elevated);
+	border: 1px solid var(--neutral-200);
+	border-radius: var(--radius-lg);
+	color: var(--neutral-600);
+	transition: all var(--transition-base);
+	box-shadow: var(--shadow-sm);
+}
+
+.contact-social-link:hover {
+	background: var(--primary-blue);
+	border-color: var(--primary-blue);
+	color: #ffffff;
+	transform: translateY(-2px);
+	box-shadow: var(--shadow-md);
+}
+
+/* === FORM WRAPPER === */
+.contact-form-wrapper {
+	position: relative;
+}
+
+.contact-form {
+	padding: 3rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+/* === FORM ELEMENTS === */
+.form-group {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.btn-form {
+	margin-top: 1rem;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.75rem;
+	padding: 1rem 2rem;
+	font-size: 1.0625rem;
+}
+
+.btn-form svg {
+	transition: transform var(--transition-base);
+}
+
+.btn-form:hover svg {
+	transform: translateX(4px);
+}
+
+/* === BACKGROUND PATTERN === */
+/* Pattern removed for clean design */
+
+/* === RESPONSIVE === */
+@media (max-width: 1024px) {
+	.contact-layout {
+		grid-template-columns: 1fr;
+		gap: 3rem;
+	}
+
+	.contact-info {
+		position: static;
+	}
+}
+
+@media (max-width: 768px) {
+	.contact-form {
+		padding: 2rem;
+	}
+
+	.contact-method-card {
+		padding: 1.25rem;
+	}
+
+	.contact-method-icon {
+		width: 40px;
+		height: 40px;
+		min-width: 40px;
+	}
+
+	.contact-method-value {
+		font-size: 0.9375rem;
+	}
+
+	.contact-social {
+		justify-content: center;
+	}
+}
+
+@media (max-width: 480px) {
+	.contact-form {
+		padding: 1.5rem;
+	}
+
+	.btn-form {
+		padding: 1rem 1.5rem;
+	}
+}
