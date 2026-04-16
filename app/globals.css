@@ -4,32 +4,32 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Updated color scheme for JOMAR with blue, yellow, and neutral palette */
+  /* Brand Colors — JOMAR S.A.S. */
   --background: oklch(0.99 0.002 106.79);
-  --foreground: oklch(0.245 0.015 258.34);
+  --foreground: oklch(0.15 0.02 258.34);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.245 0.015 258.34);
+  --card-foreground: oklch(0.15 0.02 258.34);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.245 0.015 258.34);
-  --primary: oklch(0.435 0.158 258.55); /* Deep corporate blue */
+  --popover-foreground: oklch(0.15 0.02 258.34);
+  --primary: oklch(0.28 0.12 258.55);    /* #003A70 Deep navy */
   --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.835 0.165 85.87); /* Vibrant yellow */
-  --secondary-foreground: oklch(0.245 0.015 258.34);
-  --muted: oklch(0.96 0.002 247.84);
-  --muted-foreground: oklch(0.556 0.015 258.34);
-  --accent: oklch(0.835 0.165 85.87); /* Yellow accent */
-  --accent-foreground: oklch(0.245 0.015 258.34);
+  --secondary: oklch(0.82 0.165 85.87);  /* #FDB515 Vibrant yellow */
+  --secondary-foreground: oklch(0.15 0.02 258.34);
+  --muted: oklch(0.96 0.004 247.84);
+  --muted-foreground: oklch(0.50 0.015 258.34);
+  --accent: oklch(0.82 0.165 85.87);
+  --accent-foreground: oklch(0.15 0.02 258.34);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.99 0 0);
-  --border: oklch(0.918 0.005 247.86);
-  --input: oklch(0.918 0.005 247.86);
-  --ring: oklch(0.435 0.158 258.55);
-  --chart-1: oklch(0.435 0.158 258.55);
-  --chart-2: oklch(0.835 0.165 85.87);
-  --chart-3: oklch(0.645 0.135 258.34);
-  --chart-4: oklch(0.735 0.145 85.87);
-  --chart-5: oklch(0.335 0.118 258.34);
-  --radius: 0.5rem;
+  --border: oklch(0.90 0.005 247.86);
+  --input: oklch(0.92 0.005 247.86);
+  --ring: oklch(0.28 0.12 258.55);
+  --chart-1: oklch(0.28 0.12 258.55);
+  --chart-2: oklch(0.82 0.165 85.87);
+  --chart-3: oklch(0.55 0.22 340);
+  --chart-4: oklch(0.65 0.20 195);
+  --chart-5: oklch(0.60 0.22 145);
+  --radius: 0.625rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -38,6 +38,17 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  /* Wayuu Palette — authentic cultural colors */
+  --wayuu-pink:   #E91E8C;
+  --wayuu-cyan:   #00BCD4;
+  --wayuu-yellow: #FFD700;
+  --wayuu-orange: #FF5722;
+  --wayuu-lime:   #76C442;
+  --wayuu-purple: #9C27B0;
+  --wayuu-red:    #E53935;
+  --wayuu-navy:   #003A70;
+  --wayuu-gold:   #FDB515;
 }
 
 .dark {
@@ -76,7 +87,6 @@
 }
 
 @theme inline {
-  /* optional: --font-sans, --font-serif, --font-mono if they are applied in the layout.tsx */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -121,36 +131,188 @@
   }
   body {
     @apply bg-background text-foreground;
+    scroll-behavior: smooth;
   }
 }
 
-/* Custom styles for Wayuu pattern decorations */
-.wayuu-pattern {
-  background-image: repeating-linear-gradient(
+/* ─── Wayuu Animations ─────────────────────────────────────────── */
+
+@keyframes wayuu-float {
+  0%, 100% { transform: translateY(0px) rotate(45deg); }
+  50%       { transform: translateY(-18px) rotate(45deg); }
+}
+
+@keyframes wayuu-float-slow {
+  0%, 100% { transform: translateY(0px) rotate(45deg); opacity: 0.7; }
+  50%       { transform: translateY(-28px) rotate(45deg); opacity: 1; }
+}
+
+@keyframes wayuu-fade-up {
+  from { opacity: 0; transform: translateY(36px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes wayuu-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes wayuu-slide-right {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes wayuu-scale-in {
+  from { opacity: 0; transform: scale(0.88); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes wayuu-shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+@keyframes wayuu-spin-diamond {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes wayuu-pulse-border {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(233, 30, 140, 0.4); }
+  50%       { box-shadow: 0 0 0 8px rgba(233, 30, 140, 0); }
+}
+
+@keyframes wayuu-stripe-scroll {
+  from { background-position-x: 0; }
+  to   { background-position-x: 160px; }
+}
+
+/* ─── Utility Classes ──────────────────────────────────────────── */
+
+.animate-wayuu-float {
+  animation: wayuu-float 3s ease-in-out infinite;
+}
+.animate-wayuu-float-slow {
+  animation: wayuu-float-slow 5s ease-in-out infinite;
+}
+.animate-wayuu-fade-up {
+  animation: wayuu-fade-up 0.7s ease-out forwards;
+}
+.animate-wayuu-fade-in {
+  animation: wayuu-fade-in 0.6s ease-out forwards;
+}
+.animate-wayuu-slide-right {
+  animation: wayuu-slide-right 0.7s ease-out forwards;
+}
+.animate-wayuu-scale-in {
+  animation: wayuu-scale-in 0.5s ease-out forwards;
+}
+
+/* ─── Section Entry Animations ─────────────────────────────────── */
+
+.wayuu-section-reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.wayuu-section-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Wayuu Shimmer Text ───────────────────────────────────────── */
+
+.wayuu-shimmer-text {
+  background: linear-gradient(
+    90deg,
+    #FFD700 0%,
+    #E91E8C 25%,
+    #00BCD4 50%,
+    #76C442 75%,
+    #FFD700 100%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: wayuu-shimmer 4s linear infinite;
+}
+
+/* ─── Wayuu Rainbow Border ─────────────────────────────────────── */
+
+.wayuu-rainbow-border {
+  position: relative;
+}
+.wayuu-rainbow-border::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: inherit;
+  background: linear-gradient(
+    90deg,
+    #E91E8C, #FF5722, #FFD700,
+    #76C442, #00BCD4, #9C27B0, #E91E8C
+  );
+  z-index: -1;
+}
+
+/* ─── Wayuu Card Hover ─────────────────────────────────────────── */
+
+.wayuu-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: default;
+}
+.wayuu-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0, 58, 112, 0.15);
+}
+
+/* ─── Wayuu Diamond Bullet ─────────────────────────────────────── */
+
+.wayuu-bullet::before {
+  content: '◆';
+  display: inline-block;
+  margin-right: 8px;
+}
+
+/* ─── Wayuu Section Divider ────────────────────────────────────── */
+
+.wayuu-divider {
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    #E91E8C, #FF5722, #FFD700,
+    #76C442, #00BCD4, #9C27B0
+  );
+  border-radius: 2px;
+}
+
+/* ─── Geometric Background Overlay ────────────────────────────── */
+
+.wayuu-geo-bg {
+  background-image:
+    repeating-linear-gradient(
       45deg,
-      transparent,
-      transparent 10px,
-      oklch(0.835 0.165 85.87 / 0.2) 10px,
-      oklch(0.835 0.165 85.87 / 0.2) 20px
+      transparent 0px,
+      transparent 24px,
+      rgba(255, 215, 0, 0.06) 24px,
+      rgba(255, 215, 0, 0.06) 26px
     ),
     repeating-linear-gradient(
       -45deg,
-      transparent,
-      transparent 10px,
-      oklch(0.435 0.158 258.55 / 0.2) 10px,
-      oklch(0.435 0.158 258.55 / 0.2) 20px
+      transparent 0px,
+      transparent 24px,
+      rgba(233, 30, 140, 0.04) 24px,
+      rgba(233, 30, 140, 0.04) 26px
     );
 }
 
-.wayuu-border {
-  border-image: repeating-linear-gradient(
-      90deg,
-      oklch(0.835 0.165 85.87),
-      oklch(0.835 0.165 85.87) 10px,
-      oklch(0.435 0.158 258.55) 10px,
-      oklch(0.435 0.158 258.55) 20px,
-      oklch(0.645 0.245 27.325) 20px,
-      oklch(0.645 0.245 27.325) 30px
-    )
-    1;
-}
+/* ─── Wayuu Step Number ────────────────────────────────────────── */
+
+.wayuu-step-1  { background: #E91E8C; }
+.wayuu-step-2  { background: #00BCD4; }
+.wayuu-step-3  { background: #FFD700; color: #003A70 !important; }
+.wayuu-step-4  { background: #FF5722; }
+.wayuu-step-5  { background: #76C442; }
+.wayuu-step-6  { background: #9C27B0; }
+.wayuu-step-7  { background: #E53935; }
