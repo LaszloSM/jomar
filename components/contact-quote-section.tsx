@@ -253,16 +253,6 @@ export function ContactQuoteSection() {
     { icon: Clock, title: "Horario", content: "Lun–Vie: 8AM–6PM | Sáb: 8AM–12PM", color: "#FFD700", href: undefined },
   ]
 
-  // ── Shared input helpers ─────────────────────────────────────────────────────
-  const Field = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
-    <div className={className}>{children}</div>
-  )
-  const FL = ({ id, text, required }: { id: string; text: string; required?: boolean }) => (
-    <Label htmlFor={id} className="text-xs font-bold text-[#556080] uppercase tracking-wide">
-      {text} {required && <span className="text-[#E91E8C]">*</span>}
-    </Label>
-  )
-
   return (
     <section id="cotizacion" className="py-20 md:py-28 relative overflow-hidden" style={{ background: "#F0F5FF" }}>
       {/* Top accent */}
@@ -767,6 +757,18 @@ export function ContactQuoteSection() {
 }
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
+
+function Field({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  return <div className={className}>{children}</div>
+}
+
+function FL({ id, text, required }: { id: string; text: string; required?: boolean }) {
+  return (
+    <Label htmlFor={id} className="text-xs font-bold text-[#556080] uppercase tracking-wide">
+      {text} {required && <span className="text-[#E91E8C]">*</span>}
+    </Label>
+  )
+}
 
 function SectionTitle({ color, text }: { color: string; text: string }) {
   return (
